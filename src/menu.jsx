@@ -4,17 +4,18 @@ import { info } from "./data";
 import Product from "./product";
 
 const Menu = () => {
-  const { Products } = useAppContext();
-
+  const { Products, setProducts } = useAppContext();
+  // const [value, setValue] = useState(Products);
   const check = (category) => {
     if (category === "all") {
-      setValue(info);
+      setProducts(info);
     } else {
       const newCategory = info.filter((item) => item.category === category);
-      setValue(newCategory);
+      setProducts(newCategory);
     }
   };
   const categoryEl = ["all", ...new Set(info.map((item) => item.category))];
+
   return (
     <div className="px-5 py-7 md:px-10 lg:px-20">
       <div className="flex justify-between md:justify-evenly">

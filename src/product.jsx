@@ -35,20 +35,12 @@ function Product({ image, id, price, title, deleteCart }) {
 
         <div className="lg:flex justify-between">
           <h2 className="text-lg font-semibold">{title}</h2>
-          <h2 className="font-bold tracking-wide text-xl">${price}</h2>
+          <h2 className="font-bold tracking-wide text-xl">#{price / 100}</h2>
         </div>
         <Button deleteCart={deleteCart} id={id} />
       </div>
     </div>
   );
 }
-// Product.propTypes = {
-//   Product: PropTypes.shape({
-//     id: PropTypes.number,
-//     img: PropTypes.string,
-//     price: PropTypes.number,
-//     title: PropTypes.string,
-//   }).isRequired,
-// };
 
 export default Product;

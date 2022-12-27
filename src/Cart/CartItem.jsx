@@ -5,48 +5,41 @@ const CartItem = ({ title, image, price, count, total, id }) => {
   const { increase, decrease, removeItem } = useAppContext();
 
   return (
-    <div className="flex  justify-between items-center mb-6 text-center w-full">
-      <div className="w-width max-w-full" style={{ width: `25%` }}>
+    <div className="flex  justify-between items-center mb-6 text-center w-full md:px-10 lg:px-20">
+      <div className="w-20 max-w-full flex">
         <img
           src={image}
           alt=""
-          srcset=""
-          className="h-20 w-full object-cover"
+          srcSet=""
+          className="h-20 w-width object-cover"
+          style={{ width: `5rem` }}
         />
       </div>
 
-      <div className="w-width max-w-full" style={{ width: `35%` }}>
-        <h1 className="text-xl font-semibold ">{title}</h1>
-        <p className="py-1 font-semibold text-xl">${price}</p>
-
-        <div
-          className="bg-black flex justify-between items-center px-2 w-3/5 m-margin "
-          style={{ margin: `auto` }}
+      <p className="py-1 font-semibold text-xl">#{price / 100}</p>
+      <div className="bg-black flex justify-between items-center px-2  ">
+        <span
+          onClick={() => decrease(id)}
+          className=" text-white text-2xl font-bold"
         >
-          <span
-            onClick={() => decrease(id)}
-            className=" text-white text-2xl font-bold"
-          >
-            -
-          </span>
-          <span className="text-white  text-2xl font-bold">{count}</span>
-          <span
-            onClick={() => increase(id)}
-            className=" text-2xl font-bold text-white"
-          >
-            +
-          </span>
-        </div>
+          -
+        </span>
+        <span className="text-white  text-2xl font-bold px-2">{count}</span>
+        <span
+          onClick={() => increase(id)}
+          className=" text-2xl font-bold text-white"
+        >
+          +
+        </span>
       </div>
       <div
         onClick={() => removeItem(id)}
         className="w-width max-w-full text-center"
-        style={{ width: `10%` }}
       >
         <FaTrash />
       </div>
-      <div className="w-width max-w-full text-center" style={{ width: `15%` }}>
-        <p className="text-xl font-bold"> ${total}</p>
+      <div className=" max-w-full text-center">
+        <p className="text-xl font-bold"> #{total / 100}</p>
       </div>
     </div>
   );

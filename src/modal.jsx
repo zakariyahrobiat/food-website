@@ -16,12 +16,12 @@ const Modal = () => {
               <img
                 src={image}
                 alt=""
-                srcset=""
+                srcSet=""
                 className="w-3/5 h-full object-cover"
               />
             </div>
             <p className="text-xl">{title}</p>
-            <p className="text-xl">${price}</p>
+            <p className="text-xl">${price / 100}</p>
             <Link to="/">
               <button
                 className="border-2 border-black  rounded px-4 py-1 mb-2"

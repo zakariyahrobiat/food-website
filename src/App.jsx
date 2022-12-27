@@ -7,6 +7,7 @@ import SinglePage from "./singlePage";
 import Cart from "./Cart/cart";
 import Header from "./header";
 import Modal from "./modal";
+import PayStack from "./Cart/payStack";
 // import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -34,6 +35,7 @@ const App = () => {
           <Route exact path="/" element={<All />} />
           <Route path="/product" element={<SinglePage />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<PayStack />} />
         </Routes>
         <Modal />
       </Router>

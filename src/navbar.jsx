@@ -9,7 +9,10 @@ const Navbar = () => {
     <div className=" w-screen overflow-hidden ">
       <div className="relative h-20 w-screen">
         <div className="px-3 pt-5 logo-container flex justify-between w-full items-center pb-5 bg-blue-100 fixed top-0 z-10 md:px-10 lg:px-20 ">
-          <h1 className="text-2xl font-bold">LOGO</h1>
+          <Link to="/">
+            {" "}
+            <h1 className="text-2xl font-bold">LOGO</h1>
+          </Link>
           <div className="input-container  relative">
             <input
               type="text"
