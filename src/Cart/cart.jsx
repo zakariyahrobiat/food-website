@@ -1,10 +1,10 @@
 import React from "react";
 import CartColumn from "./cartColumn";
-import Navbar from "../navbar";
+import Navbar from "../components/Navbar";
 import EmptyCart from "./emptyCart";
 import CartList from "./cartList";
 import CartTotal from "./cartTotal";
-import { useAppContext } from "../context";
+import { useAppContext } from "../context/AuthContext";
 const Cart = () => {
   const { cart } = useAppContext();
 

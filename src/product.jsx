@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAppContext } from "./context";
+import { useAppContext } from "./context/AuthContext";
 import { Link } from "react-router-dom";
 
 export const Button = ({ deleteCart, id }) => {

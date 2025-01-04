@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from "../context";
+import { useAppContext } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import PayStack from "./payStack";
 const CartTotal = ({ history }) => {

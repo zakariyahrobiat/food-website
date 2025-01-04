@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import { useAppContext } from "../context";
+import { useAppContext } from "../context/AuthContext";
 const CartList = () => {
   const { cart } = useAppContext();
 

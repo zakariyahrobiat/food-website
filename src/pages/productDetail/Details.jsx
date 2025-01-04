@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "./navbar";
-import { useAppContext } from "./context";
+import NavBar from "../../components/Navbar";
+import { useAppContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const SinglePage = () => {
+const Details = () => {
   const { detail, AddToCart, Products, openModal } = useAppContext();
 
   const { title, image, price, desc, deleteCart, id } = detail.detail;
@@ -45,4 +45,4 @@ const SinglePage = () => {
   );
 };
 
-export default SinglePage;
+export default Details;

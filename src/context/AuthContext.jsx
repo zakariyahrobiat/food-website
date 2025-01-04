@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
-import App from "./App";
-import { info, SinglePage } from "./data";
+
+import { info, SinglePage } from "../assets/data";
 
 const AppContext = React.createContext();
 
-const Context = () => {
+const Context = ({children}) => {
   const [Products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
@@ -13,6 +13,8 @@ const Context = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(SinglePage);
   const [detail, setDetail] = useState(SinglePage);
+  const [search, setSearch] = useState("")
+
   // const [data, setData] = useState({ name: "", email: "", password: "" });
   const handleSubmit = (e) => {
     const name = e.target.name;
@@ -116,7 +118,7 @@ const Context = () => {
     cart.map((item) => (amount += item.total));
     setCartTotal(amount);
   };
-
+ const filteredItem = search ? Products.filter((item)=> item.title.toLowerCase().includes(search.toLowerCase())):Products
   return (
     <AppContext.Provider
       value={{
@@ -140,9 +142,10 @@ const Context = () => {
         setDetail,
         AddToCart,
         handleDetail,
+        search, setSearch, filteredItem
       }}
     >
-      <App />
+      {children}
     </AppContext.Provider>
   );
 };

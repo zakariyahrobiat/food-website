@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useAppContext } from "./context";
-import { info } from "./data";
-import Product from "./product";
+import { useAppContext } from "../context/AuthContext";
+import { info } from "../assets/data";
+import Product from "../product";
 
-const Menu = () => {
+const MenuList = () => {
   const { Products, setProducts } = useAppContext();
   // const [value, setValue] = useState(Products);
   const check = (category) => {
@@ -24,7 +24,7 @@ const Menu = () => {
             <div key={index} className="">
               <button
                 onClick={() => check(category)}
-                className="bg-black text-white px-2 py-1 tracking-wider rounded font-semibold text-lg"
+                className="bg-black text-white px-2 py-1 tracking-wider rounded font-bold text-lg uppercase"
               >
                 {category}
               </button>
@@ -41,4 +41,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default MenuList;

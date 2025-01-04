@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from "../context";
+import { useAppContext } from "../context/AuthContext";
 import { FaTrash } from "react-icons/fa";
 const CartItem = ({ title, image, price, count, total, id }) => {
   const { increase, decrease, removeItem } = useAppContext();

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { PaystackButton } from "react-paystack";
 // import "./App.css";
-import Navbar from "../navbar";
-import { useAppContext } from "../context";
+import Navbar from "../components/Navbar";
+import { useAppContext } from "../context/AuthContext";
 const PayStack = () => {
   const { cartTotal } = useAppContext();
   const publicKey = "pk_test_edd0a3b47a1b2ed9e43f84fbcaad730a531dfb22";
