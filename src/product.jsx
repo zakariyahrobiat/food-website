@@ -11,7 +11,7 @@ export const Button = ({ deleteCart, id }) => {
         openModal(id);
       }}
       disabled={deleteCart ? true : false}
-      className="w-full border border-black p-1 rounded mt-2 text-base font-bold"
+      className="w-full bg-blue-500 text-white p-1 rounded-lg mt-2 text-base font-bold"
     >
       {deleteCart ? <p disabled>In cart</p> : <p> Add To Cart</p>}
     </button>
@@ -21,8 +21,8 @@ export const Button = ({ deleteCart, id }) => {
 function Product({ image, id, price, title, deleteCart }) {
   const { handleDetail } = useAppContext();
   return (
-    <div>
-      <div>
+  
+      <div className="shadow-shadow p-4 bg-white">
         <Link to="/product">
           <img
             src={image}
@@ -33,13 +33,13 @@ function Product({ image, id, price, title, deleteCart }) {
           />
         </Link>
 
-        <div className="lg:flex justify-between">
+        <div className="flex  items-center justify-between">
           <h2 className="text-lg font-semibold">{title}</h2>
           <h2 className="font-bold tracking-wide text-xl">#{price / 100}</h2>
         </div>
         <Button deleteCart={deleteCart} id={id} />
       </div>
-    </div>
+ 
   );
 }
 

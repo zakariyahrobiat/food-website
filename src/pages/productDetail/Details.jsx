@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 const Details = () => {
   const { detail, AddToCart, Products, openModal } = useAppContext();
 
-  const { title, image, price, desc, deleteCart, id } = detail.detail;
+  const { title, image, price, desc, deleteCart, id } = detail;
 
   return (
     <div>
-      <Navbar />
+      <NavBar />
 
-      <div className="px-5 py-7 md:grid grid-cols-2 items-center gap-10 md:px-10 lg:px-20">
+      <div className="px-5 mt-20 md:grid grid-cols-2 items-center gap-10 md:px-10 lg:px-20">
         <img src={image} alt="" srcSet="" />
         <div>
           <div className="flex justify-between items-center pb-5">

@@ -43,7 +43,8 @@ const Context = ({children}) => {
     const product = getItem(id);
     console.log(product);
 
-    setDetail({ detail: product });
+    setDetail( product);
+    setModalOpen(true);
   };
   const AddToCart = (id) => {
     let tempproduct = [...Products];
