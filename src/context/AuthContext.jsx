@@ -7,6 +7,7 @@ const AppContext = React.createContext();
 
 const Context = ({children}) => {
   const [Products, setProducts] = useState([]);
+  const [slider, setSlider] = useState([])
   const [count, setCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
   const [cart, setCart] = useState([]);
@@ -32,6 +33,7 @@ const Context = ({children}) => {
   };
   useEffect(() => {
     setProduct();
+    setSlider(info)
   }, []);
 
   const getItem = (id) => {
@@ -44,7 +46,7 @@ const Context = ({children}) => {
     console.log(product);
 
     setDetail( product);
-    setModalOpen(true);
+  
   };
   const AddToCart = (id) => {
     let tempproduct = [...Products];
@@ -60,6 +62,7 @@ const Context = ({children}) => {
     setProducts(tempproduct);
     setCart([...cart, productEl]);
     addTotal();
+ 
   };
   const openModal = (id) => {
     const product = getItem(id);
@@ -143,7 +146,7 @@ const Context = ({children}) => {
         setDetail,
         AddToCart,
         handleDetail,
-        search, setSearch, filteredItem
+        search, setSearch, filteredItem, slider
       }}
     >
       {children}

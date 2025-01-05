@@ -17,7 +17,7 @@ const Details = () => {
         <div>
           <div className="flex justify-between items-center pb-5">
             <h1 className="text-xl font-semibold ">{title}</h1>
-            <p className="font-bold tracking-wide text-xl">#{price / 100}</p>
+            <p className="font-bold tracking-wide text-xl">#{price}</p>
           </div>
           <p className="text-lg py-2">{desc}</p>
           <div className="flex items-center gap-3 py-2 mt-10">

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAppContext } from "../context/AuthContext";
 import { info } from "../assets/data";
-import Product from "../product";
+import Product from "./product";
 
 const MenuList = () => {
   const { Products, setProducts } = useAppContext();

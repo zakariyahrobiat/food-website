@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "./context/AuthContext";
+import { useAppContext } from "../context/AuthContext";
 const Modal = () => {
   const { modalOpen, closeModal, modalProduct } = useAppContext();
   const { image, title, price } = modalProduct;
-  // if (!modalOpen) {
-  // }
+
   return (
     <div>
       {(modalOpen && (
@@ -22,7 +21,7 @@ const Modal = () => {
           
             <div className="flex justify-between">
             <p className="text-xl font-semibold">{title}</p>
-            <p className="text-xl font-semibold">${price}</p>
+            <p className="text-xl font-semibold">#{price}</p>
             </div>
             <div className="flex justify-between mt-2">
             <Link to="/">
