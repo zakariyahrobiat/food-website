@@ -5,42 +5,53 @@ const CartItem = ({ title, image, price, count, total, id }) => {
   const { increase, decrease, removeItem } = useAppContext();
 
   return (
-    <div className="flex  justify-between items-center mb-6 text-center w-full md:px-10 lg:px-20">
-      <div className="w-20 max-w-full flex">
+    <div>
+        
+    <div className="grid grid-cols-3 justify-between items-center my-3 text-center w-full">
+      <div className="flex text-left items-start gap-2 ">
+        <div className="w-1/3 ">
         <img
           src={image}
           alt=""
           srcSet=""
-          className="h-20 w-width object-cover"
-          style={{ width: `5rem` }}
-        />
+          className="w-full rounded"
+          />
+         </div> 
+        
+        <div>
+        <p className="pb-2 font-semibold text-xl">{title}</p>
+        <p className=" font-medium text-sm">#{price}</p>
+        </div>
       </div>
 
-      <p className="py-1 font-semibold text-xl">#{price / 100}</p>
-      <div className="bg-black flex justify-between items-center px-2  ">
+      <div className="w-1/2  m-auto text-center">
+      <div className="bg-transparent border border-black rounded text-black flex justify-between items-center px-2 ">
         <span
           onClick={() => decrease(id)}
-          className=" text-white text-2xl font-bold"
+          className=" text-2xl font-bold"
         >
           -
         </span>
-        <span className="text-white  text-2xl font-bold px-2">{count}</span>
+        <span className=" text-2xl font-bold px-2">{count}</span>
         <span
           onClick={() => increase(id)}
-          className=" text-2xl font-bold text-white"
+          className=" text-2xl font-bold"
         >
           +
         </span>
       </div>
       <div
         onClick={() => removeItem(id)}
-        className="w-width max-w-full text-center"
+        className="text-center flex items-center justify-center"
       >
-        <FaTrash />
+        <FaTrash /><p>Remove</p>
       </div>
-      <div className=" max-w-full text-center">
-        <p className="text-xl font-bold"> #{total / 100}</p>
       </div>
+      <div className=" text-right">
+        <p className="text-xl font-bold"> #{total}</p>
+      </div>
+    </div>
+    <hr className="border-black"/>
     </div>
   );
 };

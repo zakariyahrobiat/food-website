@@ -8,7 +8,7 @@ const Modal = () => {
   return (
     <div>
       {(modalOpen && (
-        <div className=" w-full px-5 bg-white bg-opacity-90 fixed top-16 left-0 bottom-0 right-0 flex items-center justify-center text-center">
+        <div className=" w-full px-5 bg-white bg-opacity-90 fixed top-16 left-0 bottom-0 right-0 flex items-center justify-center text-center ">
           <div className="bg-white p-5 shadow-shadow md:w-1/2">
             <h1 className="pb-4 text-2xl uppercase font-bold">Item added to the cart</h1>
             <div className="w-full md:w-5/6 m-auto">
@@ -16,7 +16,7 @@ const Modal = () => {
                 src={image}
                 alt=""
                 srcSet=""
-                className="w-full  object-contain"
+                className="w-full object-contain"
               />
           
             <div className="flex justify-between">
