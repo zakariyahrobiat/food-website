@@ -5,12 +5,13 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa'
 const Footer = () => {
   return (
     <div className='bg-white w-full px-3 py-5 md:px-10 lg:px-20 '>
-        <div className='flex justify-between'>
+        <div className='block md:flex justify-between text-center md:text-left pb-2'>
          <Link to="/">
        
        <h1 className="text-2xl font-bold">LOGO</h1>
      </Link>
-     <div >
+     <div className='grid grid-cols-3 md:hidden'>
+     <div>
         <h1 className='text-blue-500 text-lg font-bold'>Product</h1>
         <p className='text-sm text-neutral-600 font-normal pb-1'>Features</p>
         <p className='text-sm text-neutral-600 font-normal pb-1'>Pricing</p>
@@ -21,7 +22,26 @@ const Footer = () => {
         <p className='text-sm text-neutral-600 font-normal pb-1'>User guides</p>
         <p className='text-sm text-neutral-600 font-normal pb-1'>Webinars</p>
      </div>
+    
      <div>
+        <h1 className='text-blue-500 text-lg font-bold pb-1'>Company</h1>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>About</p>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>Join us</p>
+     </div>
+     </div>
+     <div className='hidden md:block'>
+        <h1 className='text-blue-500 text-lg font-bold'>Product</h1>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>Features</p>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>Pricing</p>
+     </div>
+     <div className='hidden md:block'>
+        <h1 className='text-blue-500 text-lg font-bold'>Resources</h1>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>Blog</p>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>User guides</p>
+        <p className='text-sm text-neutral-600 font-normal pb-1'>Webinars</p>
+     </div>
+    
+     <div className='hidden md:block'>
         <h1 className='text-blue-500 text-lg font-bold pb-1'>Company</h1>
         <p className='text-sm text-neutral-600 font-normal pb-1'>About</p>
         <p className='text-sm text-neutral-600 font-normal pb-1'>Join us</p>
@@ -36,7 +56,6 @@ const Footer = () => {
         </div>
         <hr />
         <div className='flex justify-between items-center w-full pt-2'>
-            <p className='text-lg font-semibold'>English</p>
             <p className='text-base font-normal'>@2025 Zakariyah Robiah.</p>
             <div className='flex justify-between items-center gap-5'>
             <FaFacebook/>
