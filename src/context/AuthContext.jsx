@@ -117,6 +117,7 @@ const Context = ({children}) => {
 
     addTotal();
   };
+
   const addTotal = () => {
     let amount = 0;
     cart.map((item) => (amount += item.total));

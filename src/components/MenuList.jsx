@@ -4,8 +4,7 @@ import { info } from "../assets/data";
 import Product from "./product";
 
 const MenuList = () => {
-  const { Products, setProducts } = useAppContext();
-  // const [value, setValue] = useState(Products);
+  const {setProducts, filteredItem } = useAppContext();
   const check = (category) => {
     if (category === "all") {
       setProducts(info);
@@ -32,10 +31,12 @@ const MenuList = () => {
           );
         })}
       </div>
-      <div className="grid grid-cols-1 gap-x-7 gap-y-10 py-10 md:grid-cols-3 lg:grid-cols-4">
-        {Products.map((product) => {
+      <div >
+        {filteredItem.length > 0 ? (
+          <div className="grid grid-cols-1 gap-x-7 gap-y-10 py-10 md:grid-cols-3 lg:grid-cols-4">
+          {filteredItem.map((product) => {
           return <Product {...product} key={product.id} />;
-        })}
+        })}</div>):(<p className="text-red-500 mt-2 text-2xl text-center font-semibold pt-2">No items match your search</p>)}
       </div>
     </div>
   );

@@ -24,7 +24,7 @@ const CartItem = ({ title, image, price, count, total, id }) => {
         </div>
       </div>
 
-      <div className="w-1/2  m-auto text-center">
+      <div className="w-full m-auto text-center flex justify-between">
       <div className="bg-transparent border border-black rounded text-black flex justify-between items-center px-2 ">
         <span
           onClick={() => decrease(id)}
@@ -44,7 +44,7 @@ const CartItem = ({ title, image, price, count, total, id }) => {
         onClick={() => removeItem(id)}
         className="text-center flex items-center justify-center"
       >
-        <FaTrash /><p>Remove</p>
+        <FaTrash />
       </div>
       </div>
       <div className=" text-right">
