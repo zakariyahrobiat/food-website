@@ -15,7 +15,7 @@ const Cart = () => {
   return (
     <BackgroundLayout>
       <Navbar/>
-      <div className="my-20 w-2/3 mx-auto">
+      <div className="my-20 w-full md:w-2/3 mx-auto px-5 md:px-0">
       <div className="flex justify-between item-center">
       <h1 className="text-2xl font-bold pb-5 ">YOUR CART</h1>
       <Link to="/">

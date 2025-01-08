@@ -15,14 +15,62 @@ const Context = ({children}) => {
   const [modalProduct, setModalProduct] = useState(SinglePage);
   const [detail, setDetail] = useState(SinglePage);
   const [search, setSearch] = useState("")
-
-  // const [data, setData] = useState({ name: "", email: "", password: "" });
+  const [paymentMethod, setPaymentMethod] = useState("")
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+  
+  const [error, setError ] = useState("")
+  const [data, setData] = useState({ name: "", email: "", password: "", phone:"", cardNumber:"", cardName:"",cvv:"", date:"" });
+  useEffect(() => {
+    setIsAuthenticated(!!token);
+  }, [token]);
+  
+  const setAuthStatus = (newToken) => {
+    if (newToken) {
+      localStorage.setItem("token", newToken);
+      setToken(newToken);
+      setIsAuthenticated(true)
+    } else {
+      localStorage.removeItem("token")
+      setToken(null);
+      setIsAuthenticated(false) // This should now properly update
+    }
+  };
+  
+  
+  const logout = () => {
+    setAuthStatus(null); // Clear the token and update authentication status
+  };
+// const setAuthStatus=(token)=>{
+// localStorage.setItem("token", token)
+// setToken(token)
+// setIsAuthenticated(true)
+// }
+// useEffect(() => {
+ 
+//   if (token) {
+//     setIsAuthenticated(true);
+//   } else {
+//     setIsAuthenticated(false);
+//   }
+// }, [token])
+useEffect(()=>{
+  if (error){
+   const timer = setTimeout(()=>{
+    setError("");}, 2000)
+  
+    return ()=> clearTimeout(timer)
+  }
+},[error, setError])
+ 
   const handleSubmit = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setData({ ...data, [name]: value });
   };
-
+  const handlePaymentMethod =(method)=>{
+    setPaymentMethod(method)
+  }
   const setProduct = () => {
     let tempproduct = [];
     info.forEach((item) => {
@@ -48,22 +96,25 @@ const Context = ({children}) => {
     setDetail( product);
   
   };
+
   const AddToCart = (id) => {
     let tempproduct = [...Products];
-
     const index = tempproduct.indexOf(getItem(id));
     const productEl = tempproduct[index];
-
+  
     productEl.deleteCart = true;
-
     productEl.count = 1;
-    const price = productEl.price;
-    productEl.total = price;
+    productEl.total = productEl.price;
+  
     setProducts(tempproduct);
-    setCart([...cart, productEl]);
-    addTotal();
- 
+  
+    const updatedCart = [...cart, productEl];
+    setCart(updatedCart);
+  
+   
+    addTotal(updatedCart);
   };
+  
   const openModal = (id) => {
     const product = getItem(id);
     setModalProduct(product);
@@ -72,30 +123,38 @@ const Context = ({children}) => {
   const closeModal = () => {
     setModalOpen(false);
   };
+
   const increase = (id) => {
     let tempCart = [...cart];
-    const selectItem = tempCart.find((item) => item.id === id);
-    const index = tempCart.indexOf(selectItem);
+    
+    const index = tempCart.indexOf(getItem(id));
     const product = tempCart[index];
-    product.count = product.count + 1;
+  
+    product.count += 1;
     product.total = product.count * product.price;
+  
     setCart([...tempCart]);
-    addTotal();
+  
+    
+    addTotal(tempCart);
   };
+  
   const decrease = (id) => {
     let tempCart = [...cart];
-    const selectItem = tempCart.find((item) => item.id === id);
-    const index = tempCart.indexOf(selectItem);
+        const index = tempCart.indexOf(getItem(id));
     const product = tempCart[index];
-    product.count = product.count - 1;
+  
+    product.count -= 1;
+  
     if (product.count === 0) {
       removeItem(id);
     } else {
       product.total = product.count * product.price;
       setCart([...tempCart]);
-      addTotal();
+      addTotal(tempCart);
     }
   };
+  
   const removeItem = (id) => {
     let tempproduct = [...Products];
     let tempcart = [...cart];
@@ -118,11 +177,14 @@ const Context = ({children}) => {
     addTotal();
   };
 
-  const addTotal = () => {
+  const addTotal = (cartItems) => {
     let amount = 0;
-    cart.map((item) => (amount += item.total));
+    cartItems.forEach((item) => {
+      amount += item.total;
+    });
     setCartTotal(amount);
   };
+  
  const filteredItem = search ? Products.filter((item)=> item.title.toLowerCase().includes(search.toLowerCase())):Products
   return (
     <AppContext.Provider
@@ -147,7 +209,7 @@ const Context = ({children}) => {
         setDetail,
         AddToCart,
         handleDetail,
-        search, setSearch, filteredItem, slider
+        search, setSearch, filteredItem, slider, data, paymentMethod, handlePaymentMethod, isAuthenticated, setAuthStatus, error
       }}
     >
       {children}

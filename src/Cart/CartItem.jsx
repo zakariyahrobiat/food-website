@@ -7,9 +7,9 @@ const CartItem = ({ title, image, price, count, total, id }) => {
   return (
     <div>
         
-    <div className="grid grid-cols-3 justify-between items-center my-3 text-center w-full">
+    <div className="grid grid-cols-3 justify-between items-center my-3 text-center w-full gap-x-5">
       <div className="flex text-left items-start gap-2 ">
-        <div className="w-1/3 ">
+        <div className="w-full ">
         <img
           src={image}
           alt=""
@@ -18,13 +18,13 @@ const CartItem = ({ title, image, price, count, total, id }) => {
           />
          </div> 
         
-        <div>
+        <div className="hidden md:block">
         <p className="pb-2 font-semibold text-xl">{title}</p>
         <p className=" font-medium text-sm">#{price}</p>
         </div>
       </div>
 
-      <div className="w-full m-auto text-center flex justify-between">
+      <div className="w-full text-center flex justify-between">
       <div className="bg-transparent border border-black rounded text-black flex justify-between items-center px-2 ">
         <span
           onClick={() => decrease(id)}
