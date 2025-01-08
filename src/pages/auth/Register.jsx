@@ -30,9 +30,9 @@ if(!email || !password){
 }
  
   return (
-    <div className=" flex justify-center items-center h-screen text-center relative ">
+    <div className=" flex justify-center items-center h-screen text-center w-full relative ">
       {error && <p className="bg-red-600 text-white p-2 fixed top-16 z-20 w-2/3 md:w-1/3 left-1/2 transform -translate-x-1/2 text-lg font-semibold rounded-lg">{error}</p>}
-      <form className="bg-white w-1/2 p-6  shadow-shadow ">
+      <form className="bg-white w-full md:w-1/2 p-6 mx-5 md:mx-0 shadow-shadow ">
         <h2 className="text-2xl font-bold">Create An Account</h2>
         <div className="form-control relative my-4 ">
           <input

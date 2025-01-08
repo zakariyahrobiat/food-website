@@ -28,7 +28,7 @@ try{
   return (
     <div className=" flex justify-center items-center h-screen text-center w-full ">
       {error && <p className="bg-red-600 text-white p-2 fixed top-16 z-20 w-2/3 md:w-1/3 left-1/2 transform -translate-x-1/2 text-lg font-semibold rounded-lg">{error}</p>}
-      <form onSubmit={handleLogin} className="bg-white w-full md:w-1/2 p-6  shadow-shadow ">
+      <form onSubmit={handleLogin} className="bg-white w-full mx-5 md:mx-0 md:w-1/2 p-6  shadow-shadow ">
         <h2 className="text-2xl font-bold">Sign In </h2>
         <div className="form-control relative my-6">
           <input
