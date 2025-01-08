@@ -6,7 +6,7 @@ import { LoginUser } from "../../components/authService/Auth";
 
 const Login = () => {
   const navigate = useNavigate()
-  const { data, handleSubmit, error } = useAppContext();
+  const { data, handleSubmit, error, setError } = useAppContext();
   const {email, password} = data
   const handleLogin=async(e)=>{
 e.preventDefault()

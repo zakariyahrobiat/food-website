@@ -209,7 +209,7 @@ useEffect(()=>{
         setDetail,
         AddToCart,
         handleDetail,
-        search, setSearch, filteredItem, slider, data, paymentMethod, handlePaymentMethod, isAuthenticated, setAuthStatus, error
+        search, setSearch, filteredItem, slider, data, paymentMethod, handlePaymentMethod, isAuthenticated, setAuthStatus, error, setError
       }}
     >
       {children}

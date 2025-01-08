@@ -7,7 +7,7 @@ const Register = () => {
 const navigate = useNavigate()
  
   
-  const { data, handleSubmit, error } = useAppContext();
+  const { data, handleSubmit, error, setError } = useAppContext();
   const {email, password, name} = data
   const handleRegisteredUser=async(e)=>{
     e.preventDefault()
