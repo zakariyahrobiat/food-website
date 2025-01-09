@@ -21,7 +21,7 @@ const Modal = () => {
           
             <div className="flex justify-between">
             <p className="text-xl font-semibold">{title}</p>
-            <p className="text-xl font-semibold">#{price}</p>
+            <p className="text-xl font-semibold">&#8358;{price}</p>
             </div>
             <div className="flex justify-between mt-2">
             <Link to="/">

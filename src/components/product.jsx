@@ -35,7 +35,7 @@ function Product({ image, id, price, title, deleteCart }) {
 
         <div className="flex  items-center justify-between">
           <h2 className="text-lg font-semibold">{title}</h2>
-          <h2 className="font-bold tracking-wide text-xl">#{price}</h2>
+          <h2 className="font-bold tracking-wide text-xl">&#8358;{price}</h2>
         </div>
         <Button deleteCart={deleteCart} id={id} />
       </div>

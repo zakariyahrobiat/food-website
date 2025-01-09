@@ -4,7 +4,7 @@ import { useAppContext } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 const CartModal = () => {
     const navigate= useNavigate()
-    const {show, dropdownRef, setShow, setAuthStatus} = useAppContext()
+    const {show, dropdownRef, setShow, setAuthStatus, isAuthenticated} = useAppContext()
     const logout = () => {
        
         setShow(false)
@@ -17,9 +17,13 @@ const CartModal = () => {
     
     <ul>
        <li ><a href="/cart" className='flex items-center gap-4 text-base font-semibold pb-4'><FaCartPlus className='text-blue-500'/>Cart</a></li> 
+       {!isAuthenticated ?(
+        <>
        <li ><a href="/register" className='flex items-center gap-4 text-base font-semibold pb-4'><FaRegistered className='text-blue-500'/>Register</a></li>
        <li ><a href="/login" className='flex items-center gap-4 text-base font-semibold pb-4'><FaSignInAlt className='text-blue-500'/>LogIn</a></li>
-        <button onClick={logout} className='w-full bg-blue-500 text-white font-bold text-lg rounded mt-2 flex items-center justify-center gap-4'><FaSignOutAlt/>Log Out</button>
+    </> ):(
+        <li><button onClick={logout} className='w-full bg-blue-500 text-white font-bold text-lg rounded mt-2 flex items-center justify-center gap-4'><FaSignOutAlt/>Log Out</button></li>
+    )}
     </ul>
 
 </div>

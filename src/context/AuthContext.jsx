@@ -10,7 +10,9 @@ const Context = ({children}) => {
   const [slider, setSlider] = useState([])
   const [count, setCount] = useState(0);
   const [cartTotal, setCartTotal] = useState(0);
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];});
   const [modalOpen, setModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState(SinglePage);
   const [detail, setDetail] = useState(SinglePage);
@@ -22,6 +24,9 @@ const Context = ({children}) => {
   
   const [error, setError ] = useState("")
   const [data, setData] = useState({ name: "", email: "", password: "", phone:"", cardNumber:"", cardName:"",cvv:"", date:"" });
+  useEffect(()=>{
+    localStorage.setItem("cart", JSON.stringify(cart))
+  },[cart])
   const ToggleShow=()=>{
   
     setShow(!show)
@@ -56,22 +61,7 @@ const Context = ({children}) => {
       setIsAuthenticated(false) // This should now properly update
     }
   };
-  
-  
 
-// const setAuthStatus=(token)=>{
-// localStorage.setItem("token", token)
-// setToken(token)
-// setIsAuthenticated(true)
-// }
-// useEffect(() => {
- 
-//   if (token) {
-//     setIsAuthenticated(true);
-//   } else {
-//     setIsAuthenticated(false);
-//   }
-// }, [token])
 useEffect(()=>{
   if (error){
    const timer = setTimeout(()=>{
@@ -101,11 +91,16 @@ useEffect(()=>{
     setProduct();
     setSlider(info)
   }, []);
-
+  useEffect(() => {
+    
+    if (cart.length > 0) {
+      addTotal(cart);
+    }
+  }, [cart]);
   const getItem = (id) => {
     const product = Products.find((item) => item.id === id);
 
-    return product;
+    return product || null;
   };
   const handleDetail = (id) => {
     const product = getItem(id);
@@ -141,37 +136,38 @@ useEffect(()=>{
   const closeModal = () => {
     setModalOpen(false);
   };
-
   const increase = (id) => {
     let tempCart = [...cart];
-    
-    const index = tempCart.indexOf(getItem(id));
-    const product = tempCart[index];
+    const index = tempCart.findIndex((item) => item.id === id);
   
-    product.count += 1;
-    product.total = product.count * product.price;
-  
-    setCart([...tempCart]);
-  
-    
-    addTotal(tempCart);
-  };
-  
-  const decrease = (id) => {
-    let tempCart = [...cart];
-        const index = tempCart.indexOf(getItem(id));
-    const product = tempCart[index];
-  
-    product.count -= 1;
-  
-    if (product.count === 0) {
-      removeItem(id);
-    } else {
+    if (index !== -1) {
+      const product = tempCart[index];
+      product.count += 1;
       product.total = product.count * product.price;
+  
       setCart([...tempCart]);
       addTotal(tempCart);
     }
   };
+  
+  const decrease = (id) => {
+    let tempCart = [...cart];
+    const index = tempCart.findIndex((item) => item.id === id);
+  
+    if (index !== -1) {
+      const product = tempCart[index];
+      product.count -= 1;
+  
+      if (product.count === 0) {
+        removeItem(id);
+      } else {
+        product.total = product.count * product.price;
+        setCart([...tempCart]);
+        addTotal(tempCart);
+      }
+    }
+  };
+  
   
   const removeItem = (id) => {
     let tempproduct = [...Products];

@@ -26,11 +26,11 @@ const PaymentCart = ({onClose, onSuccess}) => {
         
         <div className='text-left'>
         <p className="pb-2 font-semibold text-base">{title}</p>
-        <p className=" font-medium text-sm">#{price}</p>
+        <p className=" font-medium text-sm">&#8358;{price}</p>
         </div>
           
       <div className=" text-right">
-        <p className="text-xl font-bold"> #{total}</p>
+        <p className="text-xl font-bold"> &#8358;{total}</p>
       </div>
     </div>
     <hr />
@@ -41,16 +41,16 @@ const PaymentCart = ({onClose, onSuccess}) => {
 })}
 <div className='flex justify-between items-center '>
 <p className='text-neutral-400 font-bold text-lg'>Subtotal:</p>
-<p className='font-bold text-xl'>#{cartTotal}</p>
+<p className='font-bold text-xl'>&#8358;{cartTotal}</p>
 </div>
 <div className='flex justify-between items-center font-bold text-xl'>
 <p className='text-neutral-400 font-bold text-lg'>Discount:</p>
-<p>#0</p>
+<p>&#8358;0</p>
 </div>
 <hr />
 <div className='flex justify-between items-center font-bold text-xl'>
 <p className='text-neutral-400 font-bold text-lg'>Total:</p>
-<p>#{cartTotal}</p>
+<p>&#8358;{cartTotal}</p>
 </div>
 
 {paymentMethod === "paystack"&&

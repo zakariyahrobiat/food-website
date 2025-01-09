@@ -16,7 +16,7 @@ const CartTotal = ({ history }) => {
       </Link> */}
       <div className="flex justify-between">
       <h1 className="text-2xl font-bold mb-2">TOTAL : </h1>
-      <h1 className="text-2xl font-bold mb-2">#{cartTotal}</h1>
+      <h1 className="text-2xl font-bold mb-2">&#8358;{cartTotal}</h1>
       </div>
       <Link to="/payment">
         <button className="bg-white shadow-shadow w-1/3 text-xl font-bold rounded-tl-2xl rounded-br-2xl py-2 mb-2">

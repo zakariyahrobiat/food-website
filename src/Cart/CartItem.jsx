@@ -20,11 +20,11 @@ const CartItem = ({ title, image, price, count, total, id }) => {
         
         <div className="hidden md:block">
         <p className="pb-2 font-semibold text-xl">{title}</p>
-        <p className=" font-medium text-sm">#{price}</p>
+        <p className=" font-medium text-sm">&#8358;{price}</p>
         </div>
       </div>
 
-      <div className="w-full text-center flex justify-between">
+      <div className="w-full text-center flex justify-center gap-5">
       <div className="bg-transparent border border-black rounded text-black flex justify-between items-center px-2 ">
         <span
           onClick={() => decrease(id)}
@@ -48,7 +48,7 @@ const CartItem = ({ title, image, price, count, total, id }) => {
       </div>
       </div>
       <div className=" text-right">
-        <p className="text-xl font-bold"> #{total}</p>
+        <p className="text-xl font-bold"> &#8358;{total}</p>
       </div>
     </div>
     <hr className="border-black"/>
