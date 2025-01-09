@@ -21,7 +21,7 @@ const NavBar = () => {
               placeholder="milk"
               value={search}
               onChange={(e)=>setSearch(e.target.value)}
-              className="bg-transparent  rounded-xl bg-blue-300 py-2 px-4  text-black font-bold md:w-72 lg:w-full"
+              className="bg-transparent  rounded-xl bg-blue-300 py-2 px-4  text-black font-bold w-full"
             />
             <button className="absolute right-3 top-2 text-2xl font-bold">
               <FaSearch />
