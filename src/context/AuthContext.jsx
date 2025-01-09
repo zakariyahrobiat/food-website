@@ -22,7 +22,6 @@ const Context = ({children}) => {
   
   const [error, setError ] = useState("")
   const [data, setData] = useState({ name: "", email: "", password: "", phone:"", cardNumber:"", cardName:"",cvv:"", date:"" });
-
   const ToggleShow=()=>{
   
     setShow(!show)
@@ -183,11 +182,12 @@ useEffect(()=>{
     removeProduct.deleteCart = false;
     removeProduct.count = 0;
     removeProduct.total = 0;
-
-    setCart([...tempcart]);
+   
+    setCart(tempcart);
     setProducts([...tempproduct]);
-    addTotal();
+    addTotal(tempcart);
   };
+
   const clearItem = () => {
     setCart([]);
 
