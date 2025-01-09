@@ -2,8 +2,9 @@ import React from 'react'
 import { useAppContext } from '../../context/AuthContext'
 
 import PayStack from '../../payStack'
-const PaymentCart = () => {
-    
+const PaymentCart = ({onClose, onSuccess}) => {
+ 
+
     const {cart, cartTotal, paymentMethod} = useAppContext()
   return (
     <div className='hidden md:block md:w-1/3  bg-white p-5 self-start'>
@@ -53,7 +54,7 @@ const PaymentCart = () => {
 </div>
 
 {paymentMethod === "paystack"&&
-<button className='mt-2 w-full'><PayStack/></button>}
+<button className='mt-2 w-full'><PayStack onSuccess={onSuccess} onClose={onClose}/></button>}
 </>
 )||(
   <p className="text-red-500 text-center font-semibold">

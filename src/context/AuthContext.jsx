@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { useEffect } from "react";
 
 import { info, SinglePage } from "../assets/data";
@@ -18,9 +18,30 @@ const Context = ({children}) => {
   const [paymentMethod, setPaymentMethod] = useState("")
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
+  const [show, setShow] = useState(false)
   
   const [error, setError ] = useState("")
   const [data, setData] = useState({ name: "", email: "", password: "", phone:"", cardNumber:"", cardName:"",cvv:"", date:"" });
+
+  const ToggleShow=()=>{
+  
+    setShow(!show)
+  }
+  const dropdownRef = useRef(null);
+
+  const closeDropdown = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", closeDropdown);
+    return () => {
+      document.removeEventListener("mousedown", closeDropdown);
+    };
+  }, []);
+
   useEffect(() => {
     setIsAuthenticated(!!token);
   }, [token]);
@@ -38,9 +59,7 @@ const Context = ({children}) => {
   };
   
   
-  const logout = () => {
-    setAuthStatus(null); // Clear the token and update authentication status
-  };
+
 // const setAuthStatus=(token)=>{
 // localStorage.setItem("token", token)
 // setToken(token)
@@ -208,7 +227,7 @@ useEffect(()=>{
         detail,
         setDetail,
         AddToCart,
-        handleDetail,
+        handleDetail, ToggleShow, show, dropdownRef, setShow,
         search, setSearch, filteredItem, slider, data, paymentMethod, handlePaymentMethod, isAuthenticated, setAuthStatus, error, setError
       }}
     >

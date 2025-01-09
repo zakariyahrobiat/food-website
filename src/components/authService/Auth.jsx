@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
-export const registerUser = async()=>{
+export const registerUser = async(email, password)=>{
 try{
 const createUser = await createUserWithEmailAndPassword(auth, email, password)
   const user = createUser.user.uid
@@ -16,7 +16,7 @@ const createUser = await createUserWithEmailAndPassword(auth, email, password)
 }
  
 
-export const LoginUser=async()=>{
+export const LoginUser=async(email, password)=>{
     try{
 const existingUser = await signInWithEmailAndPassword(auth, email, password)
 const token = await existingUser.user.getIdToken()
@@ -24,7 +24,7 @@ const token = await existingUser.user.getIdToken()
    return token
 
 }catch(error) {
-    console.error("Error signing in user:", error.message);
+    setError(error.message || "Login failed.");
     throw error;
   };
 }

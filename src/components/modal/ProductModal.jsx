@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../context/AuthContext";
+import { useAppContext } from "../../context/AuthContext";
 const Modal = () => {
   const { modalOpen, closeModal, modalProduct } = useAppContext();
   const { image, title, price } = modalProduct;

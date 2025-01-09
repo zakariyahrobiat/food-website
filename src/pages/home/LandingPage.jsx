@@ -4,7 +4,8 @@ import HeroSlider from '../../components/HeroSlider'
 import BackgroundLayout from '../../layout/BackgroundLayout'
 import MenuList from '../../components/MenuList'
 import Footer from '../../components/Footer'
-import Modal from '../../components/modal'
+import Modal from '../../components/modal/ProductModal'
+
 const LandingPage = () => {
   return (
     <BackgroundLayout>
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <MenuList />
       <Footer/>
       <Modal/>
+   
     </BackgroundLayout>
   )
 }

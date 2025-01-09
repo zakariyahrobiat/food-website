@@ -21,7 +21,7 @@ if(!email || !password){
     return;
   }
   try{
-   await registerUser(email, password)
+await registerUser(email, password)
     setError("User registered successfully!");
   navigate ("/cart")
   } catch(error){

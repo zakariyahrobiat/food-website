@@ -3,14 +3,17 @@ import verve from '../../assets/verve.svg'
 import visa from '../../assets/visa.svg'
 import paypal from "../../assets/paypal.svg"
 import PayStack from '../../payStack'
+
 import { useAppContext } from '../../context/AuthContext'
-const PaymentForm = () => {
+const PaymentForm = ({onSuccess, onClose}) => {
+ 
     const [input, setInput] = useState(false)
         const {handleSubmit, data , paymentMethod, handlePaymentMethod} = useAppContext()
+  
   return (
     <div className="bg-white w-full md:w-2/3 p-5">
         <form className="w-full" onSubmit={(e) => {
-    e.preventDefault();}}>
+    e.preventDefault(); }}>
           <div className="w-full mb-4 ">
             <label className="text-left text-lg mb-2">Name</label>
             <input
@@ -125,7 +128,7 @@ const PaymentForm = () => {
             </div>
           </div>
         </form>
-        <button className=' w-full md:hidden'>  <PayStack/></button>
+        {paymentMethod === "paystack"&& <button className=' w-full md:hidden'>  <PayStack onSuccess={onSuccess} onClose={onClose}/></button>}
       
 </div>
   )

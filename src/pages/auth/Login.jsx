@@ -6,10 +6,11 @@ import { LoginUser } from "../../components/authService/Auth";
 
 const Login = () => {
   const navigate = useNavigate()
-  const { data, handleSubmit, error, setError } = useAppContext();
+  const { data, handleSubmit, error, setError, setAuthStatus } = useAppContext();
   const {email, password} = data
   const handleLogin=async(e)=>{
 e.preventDefault()
+setError(null)
 if(!password || !email){
   setError("Please enter both email and password.");
   return;
@@ -18,8 +19,9 @@ try{
   const token = await LoginUser(email, password);
         console.log("User logged in with token:", token);
         setAuthStatus(token);
+        setError("Login successful!");
   navigate("/cart")
-  setError("Login successful!");
+  
 }catch(error){
   setError(error.message || "Login failed.");
 }

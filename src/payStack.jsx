@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { PaystackButton } from "react-paystack";
 
 import { useAppContext } from "./context/AuthContext";
-const PayStack = () => {
+const PayStack = ({onClose, onSuccess}) => {
   const { cartTotal, data } = useAppContext();
   const publicKey = "pk_test_edd0a3b47a1b2ed9e43f84fbcaad730a531dfb22";
   const amount = cartTotal*100;
@@ -17,10 +17,10 @@ const PayStack = () => {
     },
     publicKey,
     text: "Pay Now",
-    onSuccess: () =>
-      alert("Thanks for doing business with us! Come back soon!!"),
-    onClose: () => alert("Wait! Don't leave :("),
-  };
+    onSuccess, onClose
+   
+  
+  }
 
   return (
    
