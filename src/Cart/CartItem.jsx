@@ -9,7 +9,7 @@ const CartItem = ({ title, image, price, count, total, id }) => {
         
     <div className="grid grid-cols-3 justify-between items-center my-3 text-center w-full gap-x-5">
       <div className="flex text-left items-start gap-2 ">
-        <div className="w-full ">
+        <div className="w-1/2 ">
         <img
           src={image}
           alt=""
