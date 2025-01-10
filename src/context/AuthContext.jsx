@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef } from "react";
 import { useEffect } from "react";
-
+import Cookies from 'js-cookie';
 import { info, SinglePage } from "../assets/data";
 
 const AppContext = React.createContext();
@@ -18,7 +18,7 @@ const Context = ({children}) => {
   const [detail, setDetail] = useState(SinglePage);
   const [search, setSearch] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState(Cookies.get('token'));
   const [isAuthenticated, setIsAuthenticated] = useState(!!token);
   const [show, setShow] = useState(false)
   
@@ -52,14 +52,10 @@ const Context = ({children}) => {
   
   const setAuthStatus = (newToken) => {
     if (newToken) {
-      localStorage.setItem("token", newToken);
+      Cookies.set('token', newToken, { expires: 3, secure: true });
       setToken(newToken);
       setIsAuthenticated(true)
-    } else {
-      localStorage.removeItem("token")
-      setToken(null);
-      setIsAuthenticated(false) // This should now properly update
-    }
+    } 
   };
 
 useEffect(()=>{
