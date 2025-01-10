@@ -78,7 +78,7 @@ useEffect(()=>{
   const setProduct = () => {
     let tempproduct = [];
     info.forEach((item) => {
-      const singleItem = { ...item };
+      const singleItem = { ...item, deleteCart: cart.some(cartItem => cartItem.id === item.id) };
       tempproduct = [...tempproduct, singleItem];
     });
     setProducts(tempproduct);
@@ -86,7 +86,7 @@ useEffect(()=>{
   useEffect(() => {
     setProduct();
     setSlider(info)
-  }, []);
+  }, [cart]);
   useEffect(() => {
     
     if (cart.length > 0) {
