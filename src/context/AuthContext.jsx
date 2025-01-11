@@ -55,7 +55,11 @@ const Context = ({children}) => {
       Cookies.set('token', newToken, { expires: 3, secure: true });
       setToken(newToken);
       setIsAuthenticated(true)
-    } 
+    } else {
+      Cookies.remove('token'); 
+      setToken(null);
+      setIsAuthenticated(false);
+    }
   };
 
 useEffect(()=>{
@@ -87,6 +91,7 @@ useEffect(()=>{
     setProduct();
     setSlider(info)
   }, [cart]);
+ 
   useEffect(() => {
     
     if (cart.length > 0) {

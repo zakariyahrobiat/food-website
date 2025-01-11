@@ -2,14 +2,15 @@ import React from 'react'
 import { FaCartPlus, FaRegistered,FaSignInAlt, FaSignOutAlt } from 'react-icons/fa'
 import { useAppContext } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 const CartModal = () => {
     const navigate= useNavigate()
     const {show, dropdownRef, setShow, setAuthStatus, isAuthenticated} = useAppContext()
     const logout = () => {
-       
+      setAuthStatus(null); 
+      Cookies.remove("token")
         setShow(false)
-        setAuthStatus(null); 
-      navigate("/")
+        navigate("/")
       };
     if (!show) return null;
   return (

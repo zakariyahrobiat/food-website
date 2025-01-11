@@ -5,6 +5,7 @@ export const info = [
     category: "breakfast",
     price: 1000,
     image: "./images/item-1.jpeg",
+    backgroundImage: "./images/background.jpg",
     deleteCart: false,
     count: 0,
     total: 0,
@@ -19,6 +20,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-2.jpeg",
+    backgroundImage: "./images/background1.jpg",
     desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
   },
   {
@@ -30,6 +32,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-3.jpeg",
+    backgroundImage: "./images/background2.jpg",
     desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
   },
   {
@@ -41,6 +44,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-4.jpeg",
+    backgroundImage: "./images/background3.jpg",
     desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
   },
   {
@@ -51,6 +55,7 @@ export const info = [
     count: 0,
     total: 0,
     image: "./images/item-5.jpeg",
+    backgroundImage: "./images/background4.jpg",
     desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
   },
   {
@@ -62,6 +67,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-6.jpeg",
+    backgroundImage: "./images/background5.jpg",
     desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
   },
   {
@@ -73,6 +79,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-7.jpeg",
+    backgroundImage: "./images/background8.jpg",
     desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
   },
   {
@@ -84,6 +91,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-8.jpeg",
+    backgroundImage: "./images/background9.jpg",
     desc: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
   },
   {
@@ -95,6 +103,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-9.jpeg",
+    backgroundImage: "./images/background10.jpg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
   {
@@ -106,6 +115,7 @@ export const info = [
     total: 0,
     deleteCart: false,
     image: "./images/item-10.jpeg",
+    backgroundImage: "./images/background11.jpg",
     desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
   },
 ];
@@ -117,5 +127,6 @@ export const SinglePage = {
   price: 1000,
   deleteCart: false,
   image: "./images/item-1.jpeg",
+  backgroundImage: "./images/background.jpg",
   desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
 };

@@ -27,11 +27,11 @@ const HeroSlider = () => {
         style={{ transform: `translateX(-${10 * count}%)` }}
       >
         {slider.map((info) => {
-          const { image, id } = info;
+          const {  backgroundImage, id } = info;
           return (
             <div key={id} className="w-screen h-full">
               <img
-                src={image}
+                src={backgroundImage}
                 alt=""
                 srcSet=""
                 className="object-cover w-full  lg:h-full"
