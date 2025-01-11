@@ -26,7 +26,7 @@ const Modal = () => {
             <div className="flex justify-between mt-2">
             <Link to="/">
               <button
-                className=" bg-blue-500 text-white text-lg font-semibold rounded px-4 py-1 mb-2"
+                className=" bg-blue-500 text-white text-lg font-semibold rounded px-1 md:px-4 py-1 mb-2"
                 onClick={() => {
                   closeModal();
                 }}
@@ -37,7 +37,7 @@ const Modal = () => {
             <br />
             <Link to="/cart">
               <button
-                className="bg-blue-500 text-white text-lg font-semibold rounded px-4 py-1"
+                className="bg-blue-500 text-white text-lg font-semibold rounded px-1 md:px-4 py-1"
                 onClick={() => closeModal()}
               >
                 {" "}
